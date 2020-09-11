@@ -6,6 +6,7 @@ use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
 use Somnambulist\Components\AttributeModel\Exceptions\AttributeCasterException;
 use Somnambulist\Domain\Entities\Types\DateTime\DateTime;
 use function in_array;
+use function is_null;
 
 /**
  * Class DateTimeCaster
@@ -41,7 +42,13 @@ final class DateTimeCaster implements AttributeCasterInterface
 
     public function cast(array &$attributes, $attribute, string $type): void
     {
-        if (false === $val = DateTime::createFromFormat($this->format, $attributes[$attribute])) {
+        $val = $attributes[$attribute] ?? null;
+
+        if (is_null($val)) {
+            return;
+        }
+
+        if (false === $val = DateTime::createFromFormat($this->format, $val)) {
             throw AttributeCasterException::unableToCastAttributeToType($attribute, $type);
         }
 

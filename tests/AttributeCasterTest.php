@@ -2,6 +2,7 @@
 
 namespace Somnambulist\Components\AttributeModel\Tests;
 
+use Eloquent\Enumeration\Exception\UndefinedMemberException;
 use PHPUnit\Framework\TestCase;
 use Somnambulist\Collection\Contracts\Collection;
 use Somnambulist\Components\AttributeModel\AttributeCaster;
@@ -126,6 +127,91 @@ class AttributeCasterTest extends TestCase
         $this->assertInstanceOf(Money::class, $casted['total']);
         $this->assertArrayNotHasKey('total_amount', $casted);
         $this->assertArrayNotHasKey('total_currency', $casted);
+    }
+
+    public function testNullCast()
+    {
+        $casts = [
+            'created_at' => 'datetime',
+            'phone'      => 'phone_number',
+            'email'      => 'email_address',
+            'properties' => 'json',
+        ];
+
+        $attributes = [
+            'created_at' => null,
+            'phone'      => null,
+            'email'      => null,
+            'properties' => null,
+        ];
+
+        $casted = $this->caster->cast($attributes, $casts);
+
+        // direct conversions
+        $this->assertNull($casted['created_at']);
+        $this->assertNull($casted['phone']);
+        $this->assertNull($casted['email']);
+        $this->assertInstanceOf(Collection::class, $casted['properties']);
+    }
+
+    public function testCastingEnumValuesRaisesExceptions()
+    {
+        $casts = [
+            'srid' => 'srid',
+        ];
+
+        $attributes = [
+            'srid' => null,
+        ];
+
+        $this->expectException(UndefinedMemberException::class);
+
+        $this->caster->cast($attributes, $casts);
+    }
+
+    public function testCastingEnumKeysRaisesExceptions()
+    {
+        $casts = [
+            'country' => 'country',
+        ];
+
+        $attributes = [
+            'country' => null,
+        ];
+
+        $this->expectException(UndefinedMemberException::class);
+
+        $this->caster->cast($attributes, $casts);
+    }
+
+    public function testCastingNullExternalIdentitiesReturnsNull()
+    {
+        $casts = [
+            'product_id' => 'external_id',
+        ];
+
+        $attributes = [
+
+        ];
+
+        $casted = $this->caster->cast($attributes, $casts);
+
+        $this->assertArrayNotHasKey('product_id', $casted);
+    }
+
+    public function testCastingNullAreaReturnsNull()
+    {
+        $casts = [
+            'area' => 'area',
+        ];
+
+        $attributes = [
+
+        ];
+
+        $casted = $this->caster->cast($attributes, $casts);
+
+        $this->assertArrayNotHasKey('area', $casted);
     }
 
     public function testFor()

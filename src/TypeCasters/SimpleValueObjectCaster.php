@@ -5,6 +5,7 @@ namespace Somnambulist\Components\AttributeModel\TypeCasters;
 use InvalidArgumentException;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
 use Somnambulist\Domain\Entities\AbstractValueObject;
+use function array_key_exists;
 use function in_array;
 use function is_a;
 use function sprintf;
@@ -46,6 +47,12 @@ final class SimpleValueObjectCaster implements AttributeCasterInterface
 
     public function cast(array &$attributes, $attribute, string $type): void
     {
+        $value = $attributes[$attribute] ?? null;
+
+        if (is_null($value)) {
+            return;
+        }
+
         $attributes[$attribute] = new $this->class($attributes[$attribute]);
     }
 }

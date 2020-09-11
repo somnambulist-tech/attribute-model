@@ -38,6 +38,6 @@ final class JsonCollectionCaster implements AttributeCasterInterface
 
     public function cast(array &$attributes, $attribute, string $type): void
     {
-        $attributes[$attribute] = new Collection(json_decode($attributes[$attribute], true, 512, JSON_THROW_ON_ERROR));
+        $attributes[$attribute] = new Collection(json_decode($attributes[$attribute] ?? '{}', true, 512, JSON_THROW_ON_ERROR));
     }
 }
