@@ -8,6 +8,7 @@ use Somnambulist\Collection\Contracts\Collection;
 use Somnambulist\Components\AttributeModel\AttributeCaster;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
 use Somnambulist\Components\AttributeModel\Exceptions\AttributeCasterException;
+use Somnambulist\Components\AttributeModel\Tests\Support\Stubs\Models\MyEnum;
 use Somnambulist\Components\AttributeModel\TypeCasters;
 use Somnambulist\Domain\Entities\Types\DateTime\DateTime;
 use Somnambulist\Domain\Entities\Types\Geography\Country;
@@ -237,5 +238,23 @@ class AttributeCasterTest extends TestCase
 
         $this->assertSame($caster, $this->caster->for('datetime_tz'));
         $this->assertSame($caster, $this->caster->for('my_datetime'));
+    }
+
+    public function testCanPreCastValuesForEnumerableCasting()
+    {
+        $attrs = ['my_enum' => '4'];
+        $caster = new TypeCasters\EnumerableValueCaster(MyEnum::class, ['my_enum'], 'int');
+        $caster->cast($attrs, 'my_enum', 'my_enum');
+
+        $this->assertInstanceOf(MyEnum::class, $attrs['my_enum']);
+    }
+
+    public function testWithoutPreCastRaisesException()
+    {
+        $this->expectException(UndefinedMemberException::class);
+
+        $attrs = ['my_enum' => '4'];
+        $caster = new TypeCasters\EnumerableValueCaster(MyEnum::class, ['my_enum']);
+        $caster->cast($attrs, 'my_enum', 'my_enum');
     }
 }
