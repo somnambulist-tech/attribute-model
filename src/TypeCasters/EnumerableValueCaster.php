@@ -4,7 +4,7 @@ namespace Somnambulist\Components\AttributeModel\TypeCasters;
 
 use InvalidArgumentException;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
-use Somnambulist\Domain\Entities\AbstractEnumeration;
+use Somnambulist\Components\Domain\Entities\AbstractEnumeration;
 use function in_array;
 use function is_a;
 

@@ -5,7 +5,7 @@ namespace Somnambulist\Components\AttributeModel\Tests;
 use BadMethodCallException;
 use PHPUnit\Framework\TestCase;
 use Somnambulist\Components\AttributeModel\Tests\Support\Stubs\Models\User;
-use Somnambulist\Domain\Entities\Types\DateTime\DateTime;
+use Somnambulist\Components\Domain\Entities\Types\DateTime\DateTime;
 use function date;
 use function password_hash;
 

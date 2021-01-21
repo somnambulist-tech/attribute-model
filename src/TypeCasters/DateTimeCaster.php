@@ -4,7 +4,7 @@ namespace Somnambulist\Components\AttributeModel\TypeCasters;
 
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
 use Somnambulist\Components\AttributeModel\Exceptions\AttributeCasterException;
-use Somnambulist\Domain\Entities\Types\DateTime\DateTime;
+use Somnambulist\Components\Domain\Entities\Types\DateTime\DateTime;
 use function in_array;
 use function is_null;
 

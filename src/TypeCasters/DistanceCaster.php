@@ -2,8 +2,8 @@
 
 namespace Somnambulist\Components\AttributeModel\TypeCasters;
 
-use Somnambulist\Domain\Entities\Types\Measure\Distance;
-use Somnambulist\Domain\Entities\Types\Measure\DistanceUnit;
+use Somnambulist\Components\Domain\Entities\Types\Measure\Distance;
+use Somnambulist\Components\Domain\Entities\Types\Measure\DistanceUnit;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
 use function in_array;
 

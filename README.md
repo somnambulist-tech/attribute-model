@@ -9,7 +9,7 @@ This library is used by [somnambulist/read-models](https://github.com/somnambuli
 
 ## Requirements
 
- * PHP 7.4+
+ * PHP 8.0+
  * pragmarx/ia-str
 
 ## Installation
@@ -49,15 +49,15 @@ The following casters are built-in and are largely configurable by type or attri
 
 | Caster | Output | Comments |
 |---|---|---|
-| AreaCaster | Somnambulist\Domain\Entities\Types\Measure\Area | convert a value + unit to an Area value object |
-| CoordinateCaster | Somnambulist\Domain\Entities\Types\Geography\Coordinate | convert lat/long/srid strings to value object |
-| DateTimeCaster | Somnambulist\Domain\Entities\Types\DateTime\DateTime | convert a date/time in a format to a DateTime object |
-| DistanceCaster | Somnambulist\Domain\Entities\Types\Measure\Distance | convert a value + unit to a Distance value object |
-| EnumerableKeyCaster | Somnambulist\Domain\Entities\AbstractEnumeration | returns instantiated enumeration object using the member key; may also be a multiton |
-| EnumerableValueCaster | Somnambulist\Domain\Entities\AbstractEnumeration | returns instantiated enumeration object using the member value |
+| AreaCaster | Somnambulist\Components\Domain\Entities\Types\Measure\Area | convert a value + unit to an Area value object |
+| CoordinateCaster | Somnambulist\Components\Domain\Entities\Types\Geography\Coordinate | convert lat/long/srid strings to value object |
+| DateTimeCaster | Somnambulist\Components\Domain\Entities\Types\DateTime\DateTime | convert a date/time in a format to a DateTime object |
+| DistanceCaster | Somnambulist\Components\Domain\Entities\Types\Measure\Distance | convert a value + unit to a Distance value object |
+| EnumerableKeyCaster | Somnambulist\Components\Domain\Entities\AbstractEnumeration | returns instantiated enumeration object using the member key; may also be a multiton |
+| EnumerableValueCaster | Somnambulist\Components\Domain\Entities\AbstractEnumeration | returns instantiated enumeration object using the member value |
 | JsonCollectionCaster | Somnambulist\Collection\MutableCollection | decodes a JSON string into a collection object |
-| MoneyCaster | Somnambulist\Domain\Entities\Types\Money\Money | convert a value + ISO currency to value object |
-| SimpleValueObjectCaster | Somnambulist\Domain\Entities\AbstractValueObject | creates value-objects from a single string value e.g. EmailAddress |
+| MoneyCaster | Somnambulist\Components\Domain\Entities\Types\Money\Money | convert a value + ISO currency to value object |
+| SimpleValueObjectCaster | Somnambulist\Components\Domain\Entities\AbstractValueObject | creates value-objects from a single string value e.g. EmailAddress |
 
 Many of the casters accept alternative attribute names for matching and type overrides. Suitable
 defaults are provided where appropriate (e.g.: json, json_array, json_collection).

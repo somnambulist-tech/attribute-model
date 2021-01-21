@@ -2,8 +2,8 @@
 
 namespace Somnambulist\Components\AttributeModel\TypeCasters;
 
-use Somnambulist\Domain\Entities\Types\Measure\Area;
-use Somnambulist\Domain\Entities\Types\Measure\AreaUnit;
+use Somnambulist\Components\Domain\Entities\Types\Measure\Area;
+use Somnambulist\Components\Domain\Entities\Types\Measure\AreaUnit;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
 use function in_array;
 

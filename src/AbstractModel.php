@@ -56,7 +56,7 @@ abstract class AbstractModel
         throw new DomainException(sprintf('Models are read-only and cannot be changed once loaded'));
     }
 
-    public function __isset($name)
+    public function __isset($name): bool
     {
         return !is_null($this->getAttribute($name));
     }

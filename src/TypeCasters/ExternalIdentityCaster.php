@@ -3,7 +3,7 @@
 namespace Somnambulist\Components\AttributeModel\TypeCasters;
 
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
-use Somnambulist\Domain\Entities\Types\Identity\ExternalIdentity;
+use Somnambulist\Components\Domain\Entities\Types\Identity\ExternalIdentity;
 
 /**
  * Class ExternalIdentityCaster

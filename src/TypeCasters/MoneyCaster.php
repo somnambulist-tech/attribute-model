@@ -3,8 +3,8 @@
 namespace Somnambulist\Components\AttributeModel\TypeCasters;
 
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
-use Somnambulist\Domain\Entities\Types\Money\Currency;
-use Somnambulist\Domain\Entities\Types\Money\Money;
+use Somnambulist\Components\Domain\Entities\Types\Money\Currency;
+use Somnambulist\Components\Domain\Entities\Types\Money\Money;
 use function in_array;
 
 /**

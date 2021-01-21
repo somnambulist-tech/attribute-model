@@ -2,7 +2,7 @@
 
 namespace Somnambulist\Components\AttributeModel\TypeCasters;
 
-use Somnambulist\Collection\MutableCollection as Collection;
+use Somnambulist\Components\Collection\MutableCollection as Collection;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
 use function in_array;
 use function json_decode;

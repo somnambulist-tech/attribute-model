@@ -2,7 +2,7 @@
 
 namespace Somnambulist\Components\AttributeModel\Tests\Support\Stubs\Models;
 
-use Somnambulist\Domain\Entities\AbstractEnumeration;
+use Somnambulist\Components\Domain\Entities\AbstractEnumeration;
 
 /**
  * Class MyEnum

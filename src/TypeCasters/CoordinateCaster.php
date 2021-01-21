@@ -2,8 +2,8 @@
 
 namespace Somnambulist\Components\AttributeModel\TypeCasters;
 
-use Somnambulist\Domain\Entities\Types\Geography\Coordinate;
-use Somnambulist\Domain\Entities\Types\Geography\Srid;
+use Somnambulist\Components\Domain\Entities\Types\Geography\Coordinate;
+use Somnambulist\Components\Domain\Entities\Types\Geography\Srid;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
 use function in_array;
 
