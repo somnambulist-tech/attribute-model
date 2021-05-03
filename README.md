@@ -1,5 +1,11 @@
 # Attribute Model
 
+[![GitHub Actions Build Status](https://img.shields.io/github/workflow/status/somnambulist-tech/attribute-model/tests?logo=github)](https://github.com/somnambulist-tech/attribute-model/actions?query=workflow%3Atests)
+[![Issues](https://img.shields.io/github/issues/somnambulist-tech/attribute-model?logo=github)](https://github.com/somnambulist-tech/attribute-model/issues)
+[![License](https://img.shields.io/github/license/somnambulist-tech/attribute-model?logo=github)](https://github.com/somnambulist-tech/attribute-model/blob/master/LICENSE)
+[![PHP Version](https://img.shields.io/packagist/php-v/somnambulist/attribute-model?logo=php&logoColor=white)](https://packagist.org/packages/somnambulist/attribute-model)
+[![Current Version](https://img.shields.io/packagist/v/somnambulist/attribute-model?logo=packagist&logoColor=white)](https://packagist.org/packages/somnambulist/attribute-model)
+
 A sort-of-kind-of ActiveModel type'ish base for Models that rely on an array of attributes.
 Includes a type-casting sub-system for casting attributes to values. Extracted from read-models.
 
