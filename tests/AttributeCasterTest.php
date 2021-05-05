@@ -10,6 +10,7 @@ use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
 use Somnambulist\Components\AttributeModel\Exceptions\AttributeCasterException;
 use Somnambulist\Components\AttributeModel\Tests\Support\Stubs\Models\MyEnum;
 use Somnambulist\Components\AttributeModel\TypeCasters;
+use Somnambulist\Components\Collection\MutableCollection;
 use Somnambulist\Components\Domain\Entities\Types\DateTime\DateTime;
 use Somnambulist\Components\Domain\Entities\Types\Geography\Country;
 use Somnambulist\Components\Domain\Entities\Types\Geography\Srid;
@@ -213,6 +214,25 @@ class AttributeCasterTest extends TestCase
         $casted = $this->caster->cast($attributes, $casts);
 
         $this->assertArrayNotHasKey('area', $casted);
+    }
+
+    public function testCastingDecodedJsonArrayToCollection()
+    {
+        $casts = [
+            'meta' => 'json',
+        ];
+
+        $attributes = [
+            'meta' => [
+                'this' => 'that',
+                'foo'  => 'bar',
+            ]
+        ];
+
+        $casted = $this->caster->cast($attributes, $casts);
+
+        $this->assertInstanceOf(MutableCollection::class, $casted['meta']);
+        $this->assertCount(2, $casted['meta']);
     }
 
     public function testFor()

@@ -1,11 +1,16 @@
 Change Log
 ==========
 
+2021-05-05 - 2.0.1
+------------------
+
+ * fix bug in JsonCollectionCaster not handling arrays of already decoded data 
+
 2021-01-21 - 2.0.0
 ------------------
 
  * PHP 8 support
- * Update to domain 4.0 and collection 5.0
+ * update to domain 4.0 and collection 5.0
 
 2020-09-22 - 1.0.2
 ------------------
