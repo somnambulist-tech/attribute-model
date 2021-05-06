@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+2021-05-05 - 1.0.3
+------------------
+
+ * fix bug in JsonCollectionCaster not handling arrays of already decoded data
+
 2020-09-22 - 1.0.2
 ------------------
 

@@ -5,6 +5,7 @@ namespace Somnambulist\Components\AttributeModel\Tests;
 use Eloquent\Enumeration\Exception\UndefinedMemberException;
 use PHPUnit\Framework\TestCase;
 use Somnambulist\Collection\Contracts\Collection;
+use Somnambulist\Collection\MutableCollection;
 use Somnambulist\Components\AttributeModel\AttributeCaster;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
 use Somnambulist\Components\AttributeModel\Exceptions\AttributeCasterException;
@@ -213,6 +214,25 @@ class AttributeCasterTest extends TestCase
         $casted = $this->caster->cast($attributes, $casts);
 
         $this->assertArrayNotHasKey('area', $casted);
+    }
+
+    public function testCastingDecodedJsonArrayToCollection()
+    {
+        $casts = [
+            'meta' => 'json',
+        ];
+
+        $attributes = [
+            'meta' => [
+                'this' => 'that',
+                'foo'  => 'bar',
+            ]
+        ];
+
+        $casted = $this->caster->cast($attributes, $casts);
+
+        $this->assertInstanceOf(MutableCollection::class, $casted['meta']);
+        $this->assertCount(2, $casted['meta']);
     }
 
     public function testFor()
