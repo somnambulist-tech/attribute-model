@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+2021-05-05 - 1.0.4
+------------------
+
+ * fix handling missing keys in JSON caster 
+
 2021-05-05 - 1.0.3
 ------------------
 
