@@ -4,6 +4,7 @@ namespace Somnambulist\Components\AttributeModel\TypeCasters;
 
 use Somnambulist\Components\Collection\MutableCollection as Collection;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
+use function array_key_exists;
 use function in_array;
 use function is_array;
 use function json_decode;
@@ -39,12 +40,14 @@ final class JsonCollectionCaster implements AttributeCasterInterface
 
     public function cast(array &$attributes, $attribute, string $type): void
     {
-        if (is_string($attributes[$attribute])) {
-            $data = json_decode($attributes[$attribute] ?? '{}', true, 512, JSON_THROW_ON_ERROR);
-        } elseif (is_array($attributes[$attribute])) {
-            $data = $attributes[$attribute];
-        } else {
-            $data = [];
+        $data = [];
+
+        if (array_key_exists($attribute, $attributes)) {
+            if (is_string($attributes[$attribute])) {
+                $data = json_decode($attributes[$attribute] ?? '{}', true, 512, JSON_THROW_ON_ERROR);
+            } elseif (is_array($attributes[$attribute])) {
+                $data = $attributes[$attribute];
+            }
         }
 
         $attributes[$attribute] = new Collection($data);
