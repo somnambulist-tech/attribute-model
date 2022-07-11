@@ -10,16 +10,10 @@ use function date;
 use function password_hash;
 
 /**
- * Class ModelTest
- *
- * @package    Somnambulist\Components\AttributeModel\Tests
- * @subpackage Somnambulist\Components\AttributeModel\Tests\ModelTest
- *
  * @group model
  */
 class ModelTest extends TestCase
 {
-
     public function testUnsupportedMethodRaisesExceptionOnModelBuilder()
     {
         $this->expectException(BadMethodCallException::class);

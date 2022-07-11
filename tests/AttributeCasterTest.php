@@ -22,16 +22,10 @@ use Somnambulist\Components\Domain\Entities\Types\Money\Money;
 use Somnambulist\Components\Domain\Entities\Types\PhoneNumber;
 
 /**
- * Class AttributeCasterTest
- *
- * @package    Somnambulist\Components\AttributeModel\Tests
- * @subpackage Somnambulist\Components\AttributeModel\Tests\AttributeCasterTest
- *
- * @group      attribute-caster
+ * @group attribute-caster
  */
 class AttributeCasterTest extends TestCase
 {
-
     private ?AttributeCaster $caster = null;
 
     protected function setUp(): void
@@ -226,7 +220,7 @@ class AttributeCasterTest extends TestCase
             'meta' => [
                 'this' => 'that',
                 'foo'  => 'bar',
-            ]
+            ],
         ];
 
         $casted = $this->caster->cast($attributes, $casts);
@@ -262,7 +256,7 @@ class AttributeCasterTest extends TestCase
 
     public function testCanPreCastValuesForEnumerableCasting()
     {
-        $attrs = ['my_enum' => '4'];
+        $attrs  = ['my_enum' => '4'];
         $caster = new TypeCasters\EnumerableValueCaster(MyEnum::class, ['my_enum'], 'int');
         $caster->cast($attrs, 'my_enum', 'my_enum');
 
@@ -273,7 +267,7 @@ class AttributeCasterTest extends TestCase
     {
         $this->expectException(UndefinedMemberException::class);
 
-        $attrs = ['my_enum' => '4'];
+        $attrs  = ['my_enum' => '4'];
         $caster = new TypeCasters\EnumerableValueCaster(MyEnum::class, ['my_enum']);
         $caster->cast($attrs, 'my_enum', 'my_enum');
     }

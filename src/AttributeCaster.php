@@ -6,12 +6,6 @@ use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface as
 use Somnambulist\Components\AttributeModel\Exceptions\AttributeCasterException;
 use function array_key_exists;
 
-/**
- * Class AttributeCaster
- *
- * @package    Somnambulist\Components\AttributeModel
- * @subpackage Somnambulist\Components\AttributeModel\AttributeCaster
- */
 final class AttributeCaster
 {
 

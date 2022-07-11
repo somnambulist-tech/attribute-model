@@ -10,28 +10,16 @@ use function is_a;
 use function sprintf;
 
 /**
- * Class SimpleValueObjectCaster
- *
  * Cast an attribute to a single argument value-object e.g.: EmailAddress, or PhoneNumber.
  * Can be used when Doctrine types are not available.
- *
- * @package    Somnambulist\Components\AttributeModel\TypeCasters
- * @subpackage Somnambulist\Components\AttributeModel\TypeCasters\SimpleValueObjectCaster
  */
 final class SimpleValueObjectCaster implements AttributeCasterInterface
 {
-
-    private string $class;
-    private array $types;
-
-    public function __construct(string $class, array $types)
+    public function __construct(private string $class, private array $types)
     {
-        if (!is_a($class, AbstractValueObject::class, $string = true)) {
+        if (!is_a($class, AbstractValueObject::class, true)) {
             throw new InvalidArgumentException(sprintf('%s is not an instance of %s', $class, AbstractValueObject::class));
         }
-
-        $this->class = $class;
-        $this->types = $types;
     }
 
     public function types(): array
@@ -44,7 +32,7 @@ final class SimpleValueObjectCaster implements AttributeCasterInterface
         return in_array($type, $this->types());
     }
 
-    public function cast(array &$attributes, $attribute, string $type): void
+    public function cast(array &$attributes, mixed $attribute, string $type): void
     {
         $value = $attributes[$attribute] ?? null;
 

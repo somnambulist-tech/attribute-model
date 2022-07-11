@@ -1,6 +1,15 @@
 Change Log
 ==========
 
+2022-07-11
+----------
+
+ * remove unnecessary docblocks
+ * clean up method signatures
+ * switch to PHP8 promoted properties
+ * add `JsonArrayCaster` for casting JSON strings to simple array
+ * add `EnumCaster` for casting to PHP native enums (requires PHP 8.1)
+
 2021-05-05 - 2.0.2
 ------------------
 

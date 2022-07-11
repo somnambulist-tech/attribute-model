@@ -13,15 +13,8 @@ use function method_exists;
 use function preg_match;
 use function sprintf;
 
-/**
- * Class AbstractModel
- *
- * @package    Somnambulist\Components\AttributeModel
- * @subpackage Somnambulist\Components\AttributeModel\AbstractModel
- */
 abstract class AbstractModel
 {
-
     protected array $attributes = [];
 
     public function __construct(array $attributes = [])
@@ -84,7 +77,7 @@ abstract class AbstractModel
         return $attributes;
     }
 
-    public function getRawAttribute(string $name)
+    public function getRawAttribute(string $name): mixed
     {
         return $this->attributes[$name] ?? null;
     }
@@ -98,9 +91,9 @@ abstract class AbstractModel
      *
      * @param string $name
      *
-     * @return mixed|null
+     * @return mixed
      */
-    public function getAttribute(string $name)
+    public function getAttribute(string $name): mixed
     {
         $mutator = $this->getAttributeMutator($name);
 

@@ -7,24 +7,13 @@ use Somnambulist\Components\Domain\Entities\Types\Measure\AreaUnit;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
 use function in_array;
 
-/**
- * Class AreaCaster
- *
- * @package    Somnambulist\Components\AttributeModel\TypeCasters
- * @subpackage Somnambulist\Components\AttributeModel\TypeCasters\AreaCaster
- */
 final class AreaCaster implements AttributeCasterInterface
 {
-
-    private string $areaAttribute;
-    private string $unitAttribute;
-    private bool $remove;
-
-    public function __construct(string $areaAttribute = 'area_value', string $unitAttribute = 'area_unit', bool $remove = true)
-    {
-        $this->areaAttribute = $areaAttribute;
-        $this->unitAttribute = $unitAttribute;
-        $this->remove        = $remove;
+    public function __construct(
+        private string $areaAttribute = 'area_value',
+        private string $unitAttribute = 'area_unit',
+        private bool $remove = true
+    ) {
     }
 
     public function types(): array
@@ -37,7 +26,7 @@ final class AreaCaster implements AttributeCasterInterface
         return in_array($type, $this->types());
     }
 
-    public function cast(array &$attributes, $attribute, string $type): void
+    public function cast(array &$attributes, mixed $attribute, string $type): void
     {
         if (!isset($attributes[$this->areaAttribute], $attributes[$this->unitAttribute])) {
             return;

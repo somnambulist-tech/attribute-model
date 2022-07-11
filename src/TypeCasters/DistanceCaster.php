@@ -7,24 +7,13 @@ use Somnambulist\Components\Domain\Entities\Types\Measure\DistanceUnit;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
 use function in_array;
 
-/**
- * Class DistanceCaster
- *
- * @package    Somnambulist\Components\AttributeModel\TypeCasters
- * @subpackage Somnambulist\Components\AttributeModel\TypeCasters\DistanceCaster
- */
 final class DistanceCaster implements AttributeCasterInterface
 {
-
-    private string $distAttribute;
-    private string $unitAttribute;
-    private bool $remove;
-
-    public function __construct(string $distAttribute = 'distance_value', string $unitAttribute = 'distance_unit', bool $remove = true)
-    {
-        $this->distAttribute = $distAttribute;
-        $this->unitAttribute = $unitAttribute;
-        $this->remove        = $remove;
+    public function __construct(
+        private string $distAttribute = 'distance_value',
+        private string $unitAttribute = 'distance_unit',
+        private bool $remove = true
+    ) {
     }
 
     public function types(): array
@@ -37,7 +26,7 @@ final class DistanceCaster implements AttributeCasterInterface
         return in_array($type, $this->types());
     }
 
-    public function cast(array &$attributes, $attribute, string $type): void
+    public function cast(array &$attributes, mixed $attribute, string $type): void
     {
         if (!isset($attributes[$this->distAttribute], $attributes[$this->unitAttribute])) {
             return;

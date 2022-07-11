@@ -9,25 +9,16 @@ use function in_array;
 use function is_null;
 
 /**
- * Class DateTimeCaster
+ * Cast an attribute to a DateTime instance using a format.
  *
- * Cast an attribute to a DateTime instance using a format. This single caster
- * can be used multiple times with different formats to handle casting dates,
- * times, timezones or custom date formats e.g.: ATOM or W3C to date time objects.
- *
- * @package    Somnambulist\Components\AttributeModel\TypeCasters
- * @subpackage Somnambulist\Components\AttributeModel\TypeCasters\DateTimeCaster
+ * This single caster can be used multiple times with different formats to handle
+ * casting dates, times, timezones or custom date formats e.g.: ATOM or W3C to
+ * datetime objects.
  */
 final class DateTimeCaster implements AttributeCasterInterface
 {
-
-    private string $format;
-    private array $types;
-
-    public function __construct(string $format = 'Y-m-d H:i:s', array $types = ['datetime'])
+    public function __construct(private string $format = 'Y-m-d H:i:s', private array $types = ['datetime'])
     {
-        $this->format = $format;
-        $this->types  = $types;
     }
 
     public function types(): array
@@ -40,7 +31,7 @@ final class DateTimeCaster implements AttributeCasterInterface
         return in_array($type, $this->types());
     }
 
-    public function cast(array &$attributes, $attribute, string $type): void
+    public function cast(array &$attributes, mixed $attribute, string $type): void
     {
         $val = $attributes[$attribute] ?? null;
 

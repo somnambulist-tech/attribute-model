@@ -4,12 +4,6 @@ namespace Somnambulist\Components\AttributeModel\Tests\Support\Stubs\Models;
 
 use Somnambulist\Components\AttributeModel\AbstractModel;
 
-/**
- * Class User
- *
- * @package    Somnambulist\Components\AttributeModel\Tests\Support\Stubs\Models
- * @subpackage Somnambulist\Components\AttributeModel\Tests\Support\Stubs\Models\User
- */
 class User extends AbstractModel
 {
 

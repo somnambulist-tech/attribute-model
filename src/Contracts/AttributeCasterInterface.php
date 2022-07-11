@@ -2,12 +2,6 @@
 
 namespace Somnambulist\Components\AttributeModel\Contracts;
 
-/**
- * Interface AttributeCasterInterface
- *
- * @package    Somnambulist\Components\AttributeModel\Contracts
- * @subpackage Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface
- */
 interface AttributeCasterInterface
 {
 
@@ -23,9 +17,9 @@ interface AttributeCasterInterface
     /**
      * Cast attributes to a particular type / object resetting the attribute value
      *
-     * @param array            $attributes
-     * @param string|int|float $attribute
-     * @param string           $type
+     * @param array  $attributes
+     * @param mixed  $attribute
+     * @param string $type
      */
-    public function cast(array &$attributes, $attribute, string $type): void;
+    public function cast(array &$attributes, mixed $attribute, string $type): void;
 }

@@ -2,22 +2,22 @@
 
 namespace Somnambulist\Components\AttributeModel\TypeCasters;
 
+use BackedEnum;
 use InvalidArgumentException;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
-use Somnambulist\Components\Domain\Entities\AbstractEnumeration;
-use Somnambulist\Components\Domain\Entities\AbstractMultiton;
 use function in_array;
 use function is_a;
+use function sprintf;
 
 /**
- * Cast to an enumerable by the member key; usually the constant name.
+ * Cast to a native PHP enum
  */
-final class EnumerableKeyCaster implements AttributeCasterInterface
+final class EnumCaster implements AttributeCasterInterface
 {
     public function __construct(private string $class, private array $types)
     {
-        if (!is_a($class, AbstractEnumeration::class, true) && !is_a($class, AbstractMultiton::class, true)) {
-            throw new InvalidArgumentException(sprintf('%s is not an instance of %s or %s', $class, AbstractEnumeration::class, AbstractMultiton::class));
+        if (!is_a($class, BackedEnum::class, true)) {
+            throw new InvalidArgumentException(sprintf('%s is not an int or string backed enum', $class));
         }
     }
 
@@ -33,6 +33,6 @@ final class EnumerableKeyCaster implements AttributeCasterInterface
 
     public function cast(array &$attributes, mixed $attribute, string $type): void
     {
-        $attributes[$attribute] = $this->class::memberByKey($attributes[$attribute]);
+        $attributes[$attribute] = $this->class::from($attributes[$attribute]);
     }
 }

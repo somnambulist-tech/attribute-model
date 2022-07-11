@@ -7,26 +7,14 @@ use Somnambulist\Components\Domain\Entities\Types\Geography\Srid;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
 use function in_array;
 
-/**
- * Class CoordinateCaster
- *
- * @package    Somnambulist\Components\AttributeModel\TypeCasters
- * @subpackage Somnambulist\Components\AttributeModel\TypeCasters\CoordinateCaster
- */
 final class CoordinateCaster implements AttributeCasterInterface
 {
-
-    private string $latAttribute;
-    private string $lngAttribute;
-    private string $sridAttribute;
-    private bool   $remove;
-
-    public function __construct(string $latAttribute = 'latitude', string $lngAttribute = 'longitude', string $sridAttribute = 'srid', bool $remove = true)
-    {
-        $this->latAttribute  = $latAttribute;
-        $this->lngAttribute  = $lngAttribute;
-        $this->sridAttribute = $sridAttribute;
-        $this->remove        = $remove;
+    public function __construct(
+        private string $latAttribute = 'latitude',
+        private string $lngAttribute = 'longitude',
+        private string $sridAttribute = 'srid',
+        private bool $remove = true
+    ) {
     }
 
     public function types(): array
@@ -39,7 +27,7 @@ final class CoordinateCaster implements AttributeCasterInterface
         return in_array($type, $this->types());
     }
 
-    public function cast(array &$attributes, $attribute, string $type): void
+    public function cast(array &$attributes, mixed $attribute, string $type): void
     {
         if (!isset($attributes[$this->latAttribute], $attributes[$this->lngAttribute], $attributes[$this->sridAttribute])) {
             return;
