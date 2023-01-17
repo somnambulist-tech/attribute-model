@@ -4,7 +4,7 @@
     "description": "Provides a base model that uses an internal array of attributes with type casting",
     "license": "MIT",
     "require": {
-        "php": ">=8.0",
+        "php": ">=8.1",
         "ext-json": "*",
         "pragmarx/ia-str": "^7.0"
     },

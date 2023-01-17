@@ -4,7 +4,6 @@ namespace Somnambulist\Components\AttributeModel\Contracts;
 
 interface AttributeCasterInterface
 {
-
     /**
      * An array of the type names that this caster will respond to
      *

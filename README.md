@@ -15,7 +15,7 @@ This library is used by [somnambulist/read-models](https://github.com/somnambuli
 
 ## Requirements
 
- * PHP 8.0+
+ * PHP 8.1+
  * pragmarx/ia-str
 
 ## Installation

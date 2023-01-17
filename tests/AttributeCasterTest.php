@@ -4,6 +4,7 @@ namespace Somnambulist\Components\AttributeModel\Tests;
 
 use Eloquent\Enumeration\Exception\UndefinedMemberException;
 use PHPUnit\Framework\TestCase;
+use Somnambulist\Components\AttributeModel\Tests\Support\Stubs\Models\NativeEnum;
 use Somnambulist\Components\Collection\Contracts\Collection;
 use Somnambulist\Components\AttributeModel\AttributeCaster;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
@@ -44,10 +45,13 @@ class AttributeCasterTest extends TestCase
             new TypeCasters\EnumerableValueCaster(Srid::class, ['srid']),
             new TypeCasters\EnumerableKeyCaster(Country::class, ['country']),
 
+            new TypeCasters\JsonArrayCaster(),
             new TypeCasters\JsonCollectionCaster(),
 
             new TypeCasters\SimpleValueObjectCaster(EmailAddress::class, ['email_address']),
             new TypeCasters\SimpleValueObjectCaster(PhoneNumber::class, ['phone_number']),
+
+            new TypeCasters\EnumCaster(NativeEnum::class, ['native_enum']),
         ]);
     }
 
@@ -123,6 +127,21 @@ class AttributeCasterTest extends TestCase
         $this->assertInstanceOf(Money::class, $casted['total']);
         $this->assertArrayNotHasKey('total_amount', $casted);
         $this->assertArrayNotHasKey('total_currency', $casted);
+    }
+
+    public function testNativeEnumCasting()
+    {
+        $casts = [
+            'var' => 'native_enum',
+        ];
+
+        $attributes = [
+            'var' => 'that',
+        ];
+
+        $casted = $this->caster->cast($attributes, $casts);
+
+        $this->assertSame(NativeEnum::THAT, $casted['var']);
     }
 
     public function testNullCast()
@@ -226,6 +245,22 @@ class AttributeCasterTest extends TestCase
         $casted = $this->caster->cast($attributes, $casts);
 
         $this->assertInstanceOf(MutableCollection::class, $casted['meta']);
+        $this->assertCount(2, $casted['meta']);
+    }
+
+    public function testCastingJsonToArray()
+    {
+        $casts = [
+            'meta' => 'json_array',
+        ];
+
+        $attributes = [
+            'meta' => '{"this":"that","foo":"bar"}',
+        ];
+
+        $casted = $this->caster->cast($attributes, $casts);
+
+        $this->assertIsArray($casted['meta']);
         $this->assertCount(2, $casted['meta']);
     }
 
