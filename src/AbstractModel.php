@@ -5,6 +5,7 @@ namespace Somnambulist\Components\AttributeModel;
 use BadMethodCallException;
 use DomainException;
 use IlluminateAgnostic\Str\Support\Str;
+
 use function array_key_exists;
 use function get_class_methods;
 use function in_array;

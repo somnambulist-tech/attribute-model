@@ -11,8 +11,8 @@
     "require-dev": {
         "phpunit/phpunit": "~9.5",
         "somnambulist/collection": "^5.0",
-        "somnambulist/domain": "^4.0",
-        "symfony/var-dumper": "^5.0"
+        "somnambulist/domain": "^5.0",
+        "symfony/var-dumper": "^6.0"
     },
     "autoload": {
         "psr-4": {

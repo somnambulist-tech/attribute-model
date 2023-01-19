@@ -4,23 +4,23 @@ namespace Somnambulist\Components\AttributeModel\Tests;
 
 use Eloquent\Enumeration\Exception\UndefinedMemberException;
 use PHPUnit\Framework\TestCase;
-use Somnambulist\Components\AttributeModel\Tests\Support\Stubs\Models\NativeEnum;
-use Somnambulist\Components\Collection\Contracts\Collection;
 use Somnambulist\Components\AttributeModel\AttributeCaster;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
 use Somnambulist\Components\AttributeModel\Exceptions\AttributeCasterException;
 use Somnambulist\Components\AttributeModel\Tests\Support\Stubs\Models\MyEnum;
+use Somnambulist\Components\AttributeModel\Tests\Support\Stubs\Models\NativeEnum;
 use Somnambulist\Components\AttributeModel\TypeCasters;
+use Somnambulist\Components\Collection\Contracts\Collection;
 use Somnambulist\Components\Collection\MutableCollection;
-use Somnambulist\Components\Domain\Entities\Types\DateTime\DateTime;
-use Somnambulist\Components\Domain\Entities\Types\Geography\Country;
-use Somnambulist\Components\Domain\Entities\Types\Geography\Srid;
-use Somnambulist\Components\Domain\Entities\Types\Identity\EmailAddress;
-use Somnambulist\Components\Domain\Entities\Types\Identity\ExternalIdentity;
-use Somnambulist\Components\Domain\Entities\Types\Measure\Area;
-use Somnambulist\Components\Domain\Entities\Types\Measure\Distance;
-use Somnambulist\Components\Domain\Entities\Types\Money\Money;
-use Somnambulist\Components\Domain\Entities\Types\PhoneNumber;
+use Somnambulist\Components\Models\Types\DateTime\DateTime;
+use Somnambulist\Components\Models\Types\Geography\Country;
+use Somnambulist\Components\Models\Types\Geography\Srid;
+use Somnambulist\Components\Models\Types\Identity\EmailAddress;
+use Somnambulist\Components\Models\Types\Identity\ExternalIdentity;
+use Somnambulist\Components\Models\Types\Measure\Area;
+use Somnambulist\Components\Models\Types\Measure\Distance;
+use Somnambulist\Components\Models\Types\Money\Money;
+use Somnambulist\Components\Models\Types\PhoneNumber;
 
 /**
  * @group attribute-caster

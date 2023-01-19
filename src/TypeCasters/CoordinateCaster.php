@@ -2,9 +2,10 @@
 
 namespace Somnambulist\Components\AttributeModel\TypeCasters;
 
-use Somnambulist\Components\Domain\Entities\Types\Geography\Coordinate;
-use Somnambulist\Components\Domain\Entities\Types\Geography\Srid;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
+use Somnambulist\Components\Models\Types\Geography\Coordinate;
+use Somnambulist\Components\Models\Types\Geography\Srid;
+
 use function in_array;
 
 final class CoordinateCaster implements AttributeCasterInterface

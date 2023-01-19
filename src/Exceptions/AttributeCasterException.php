@@ -3,6 +3,7 @@
 namespace Somnambulist\Components\AttributeModel\Exceptions;
 
 use Exception;
+
 use function sprintf;
 
 class AttributeCasterException extends Exception

@@ -4,7 +4,8 @@ namespace Somnambulist\Components\AttributeModel\TypeCasters;
 
 use InvalidArgumentException;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
-use Somnambulist\Components\Domain\Entities\AbstractValueObject;
+use Somnambulist\Components\Models\AbstractValueObject;
+
 use function in_array;
 use function is_a;
 use function sprintf;

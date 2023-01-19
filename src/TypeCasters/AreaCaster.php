@@ -2,9 +2,10 @@
 
 namespace Somnambulist\Components\AttributeModel\TypeCasters;
 
-use Somnambulist\Components\Domain\Entities\Types\Measure\Area;
-use Somnambulist\Components\Domain\Entities\Types\Measure\AreaUnit;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
+use Somnambulist\Components\Models\Types\Measure\Area;
+use Somnambulist\Components\Models\Types\Measure\AreaUnit;
+
 use function in_array;
 
 final class AreaCaster implements AttributeCasterInterface

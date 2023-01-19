@@ -5,6 +5,7 @@ namespace Somnambulist\Components\AttributeModel\TypeCasters;
 use BackedEnum;
 use InvalidArgumentException;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
+
 use function in_array;
 use function is_a;
 use function sprintf;

@@ -2,9 +2,10 @@
 
 namespace Somnambulist\Components\AttributeModel\TypeCasters;
 
-use Somnambulist\Components\Domain\Entities\Types\Measure\Distance;
-use Somnambulist\Components\Domain\Entities\Types\Measure\DistanceUnit;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
+use Somnambulist\Components\Models\Types\Measure\Distance;
+use Somnambulist\Components\Models\Types\Measure\DistanceUnit;
+
 use function in_array;
 
 final class DistanceCaster implements AttributeCasterInterface

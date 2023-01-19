@@ -4,11 +4,11 @@ namespace Somnambulist\Components\AttributeModel;
 
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface as CasterInterface;
 use Somnambulist\Components\AttributeModel\Exceptions\AttributeCasterException;
+
 use function array_key_exists;
 
 final class AttributeCaster
 {
-
     private array $casters = [];
 
     public function __construct(iterable $casters = [])

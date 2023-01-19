@@ -3,8 +3,9 @@
 namespace Somnambulist\Components\AttributeModel\TypeCasters;
 
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
-use Somnambulist\Components\Domain\Entities\Types\Money\Currency;
-use Somnambulist\Components\Domain\Entities\Types\Money\Money;
+use Somnambulist\Components\Models\Types\Money\Currency;
+use Somnambulist\Components\Models\Types\Money\Money;
+
 use function in_array;
 
 final class MoneyCaster implements AttributeCasterInterface

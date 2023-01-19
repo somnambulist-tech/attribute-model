@@ -2,12 +2,14 @@
 
 namespace Somnambulist\Components\AttributeModel\TypeCasters;
 
-use Somnambulist\Components\Collection\MutableCollection as Collection;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
+use Somnambulist\Components\Collection\MutableCollection as Collection;
+
 use function array_key_exists;
 use function in_array;
 use function is_array;
 use function json_decode;
+
 use const JSON_THROW_ON_ERROR;
 
 /**

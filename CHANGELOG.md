@@ -5,6 +5,7 @@ Change Log
 ----------
 
  * require PHP 8.1+
+ * update to use `somnambulist/domain` 5.0
 
 2022-07-11
 ----------
