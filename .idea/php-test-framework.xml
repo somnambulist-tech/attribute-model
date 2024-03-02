@@ -6,6 +6,7 @@
         <cache>
           <versions>
             <info id="Local" version="9.5.1" />
+            <info id="Local/Users/dave/Projects/somnambulist/attribute-model/vendor/autoload.php" version="9.6.17" />
           </versions>
         </cache>
       </tool>

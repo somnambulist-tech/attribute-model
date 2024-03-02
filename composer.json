@@ -9,10 +9,10 @@
         "pragmarx/ia-str": "^7.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~9.5",
+        "phpunit/phpunit": "^10.5",
         "somnambulist/collection": "^5.0",
-        "somnambulist/domain": "^5.0",
-        "symfony/var-dumper": "^6.0"
+        "somnambulist/domain": "^6.0",
+        "symfony/var-dumper": "^6.4"
     },
     "autoload": {
         "psr-4": {

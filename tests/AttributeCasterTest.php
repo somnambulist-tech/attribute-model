@@ -2,7 +2,6 @@
 
 namespace Somnambulist\Components\AttributeModel\Tests;
 
-use Eloquent\Enumeration\Exception\UndefinedMemberException;
 use PHPUnit\Framework\TestCase;
 use Somnambulist\Components\AttributeModel\AttributeCaster;
 use Somnambulist\Components\AttributeModel\Contracts\AttributeCasterInterface;
@@ -12,6 +11,7 @@ use Somnambulist\Components\AttributeModel\Tests\Support\Stubs\Models\NativeEnum
 use Somnambulist\Components\AttributeModel\TypeCasters;
 use Somnambulist\Components\Collection\Contracts\Collection;
 use Somnambulist\Components\Collection\MutableCollection;
+use Somnambulist\Components\Enumeration\Exception\UndefinedMemberException;
 use Somnambulist\Components\Models\Types\DateTime\DateTime;
 use Somnambulist\Components\Models\Types\Geography\Country;
 use Somnambulist\Components\Models\Types\Geography\Srid;

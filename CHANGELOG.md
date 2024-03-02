@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+2024-03-02
+----------
+
+ * require PHP 8.1+
+ * update to use `somnambulist/domain` 5.0
+
 2023-01-16
 ----------
 
