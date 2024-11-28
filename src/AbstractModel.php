@@ -13,6 +13,7 @@ use function is_null;
 use function method_exists;
 use function preg_match;
 use function sprintf;
+use function Symfony\Component\String\u;
 
 abstract class AbstractModel
 {
@@ -26,7 +27,7 @@ abstract class AbstractModel
     public function __call($method, $parameters)
     {
         $mutator   = $this->getAttributeMutator($method);
-        $attribute = Str::snake($method);
+        $attribute = u($method)->snake()->toString();
 
         if (array_key_exists($attribute, $this->attributes) || method_exists($this, $mutator)) {
             return $this->getAttribute($attribute);
@@ -69,7 +70,7 @@ abstract class AbstractModel
             $matches = [];
 
             if (!in_array($method, $ignore) && preg_match('/^get(?<property>[\w\d]+)Attribute/', $method, $matches)) {
-                $prop = Str::snake($matches['property']);
+                $prop = u($matches['property'])->snake()->toString();
 
                 $attributes[$prop] = $this->{$method}($this->attributes[$prop] ?? null);
             }
@@ -122,6 +123,6 @@ abstract class AbstractModel
 
     protected function getAttributeMutator(string $name): string
     {
-        return sprintf('get%sAttribute', Str::studly($name));
+        return sprintf('get%sAttribute', u($name)->camel()->title()->toString());
     }
 }
